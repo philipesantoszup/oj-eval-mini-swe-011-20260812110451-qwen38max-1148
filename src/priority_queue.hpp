@@ -15,8 +15,8 @@ namespace sjtu {
  * Implementation notes:
  *  - Internally a leftist heap is used, so push / pop / merge all cost O(log n)
  *    (merge is therefore within the required O(log n) bound).
- *  - In mergeNodes() every call of the comparator happens while descending the
- *    recursion, while every structural modification happens while returning from it.
+ *  - In mergeNodes() every call of the comparator happens in the descending
+ *    pass, while every structural modification happens in the rebuilding pass.
  *    Consequently, if the comparator throws, no node pointer has been changed yet and
  *    both heaps are still intact, which provides the required strong exception safety.
  */
